@@ -3,11 +3,31 @@ import ProductNew from "./ProductNew";
 import ProductList from "./ProductList";
 
 class Container extends React.Component{
+    // productList2 = [
+    //     {
+    //         id : 57,
+    //         name : "Iphone 14",
+    //         price : 20000000,
+    //         unit : "Cái"
+    //     },
+    //     {
+    //         id : 76,
+    //         name : "SamSung Galaxy",
+    //         price : 15000000,
+    //         unit : "Chiếc"
+    //     },
+    //     {
+    //         id : 99,
+    //         name : "SamSung Galaxy",
+    //         price : 15000000,
+    //         unit : "Chiếc"
+    //     }
+    // ]
     // eslint-disable-next-line no-useless-constructor
     constructor(prop){
         super(prop);
         this.state = {
-            product : {name:"sang trong"},
+            product : {},
             productList : [
                 {
                     id : 57,
@@ -23,7 +43,7 @@ class Container extends React.Component{
                 },
                 {
                     id : 99,
-                    name : "SamSung Galaxy",
+                    name : "Xiaomi",
                     price : 15000000,
                     unit : "Chiếc"
                 }
@@ -34,7 +54,13 @@ class Container extends React.Component{
         alert(message);
     }
     editProduct = (id) =>{
-        alert(`edit ${id}`);
+        let index = this.state.productList.findIndex(function(i) {
+            return i.id === id
+        });
+        const product = this.state.productList[index];
+        this.setState({
+            product: product
+        });
     }
 
     deleteProduct = (id) =>{
@@ -47,6 +73,8 @@ class Container extends React.Component{
             productList : arr
         })
     }
+    
+    
     render(){
         return <div class="row">
         <ProductList productList = {this.state.productList} editProduct= {this.editProduct} deleteProduct = {this.deleteProduct}/>

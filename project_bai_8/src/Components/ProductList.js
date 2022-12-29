@@ -39,8 +39,10 @@ class ProductList extends React.Component
                                 <td>{product.name}</td>
                                 <td>{product.price}</td>
                                 <td>{product.unit}</td>
-                                <td><button type="button" class="btn btn-primary" onClick={()=>this.editProduct(product.id)}>Sửa</button></td>
-                                <td><button type="button" class="btn btn-danger" onClick={()=>this.deleteProduct(product.id)}>Xoá</button></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" onClick={()=>this.editProduct(product.id)}>Sửa</button>
+                                    <button type="button" class="btn btn-danger" onClick={()=>this.deleteProduct(product.id)}>Xoá</button>
+                                </td>
                             </tr>
                         })
                     }
