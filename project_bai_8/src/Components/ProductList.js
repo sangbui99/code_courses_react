@@ -1,5 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import React from "react";
+import FuntionComponentExample from "./FuntionComponentExample";
 
 class ProductList extends React.Component
 {
@@ -18,6 +19,7 @@ class ProductList extends React.Component
     render(){
         return <div class="col-md-7">
         <fieldset class="border p-2">
+        <FuntionComponentExample/>
             <legend class="scheduler-border">Danh sách sản phẩm</legend>
             <table class="table table-sm table-striped table-bordered table-hover">
                 <thead class="thead-dark">
