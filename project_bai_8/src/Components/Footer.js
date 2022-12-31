@@ -1,6 +1,5 @@
 function Footer(){
-    return(
-        <footer class="footer bg-success text-white py-4">
+    return<footer class="footer bg-success text-white py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -24,6 +23,5 @@ function Footer(){
             </div>
         </div>
     </footer>
-    )
 }
 export default Footer

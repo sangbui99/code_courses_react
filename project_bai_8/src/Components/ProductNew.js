@@ -77,7 +77,7 @@ class ProductNew extends React.Component {
                             <label>Đơn vị tính:</label>
                         </div>
                         <div class="col-md-8">
-                            <select class="form-control" id="productUnit">
+                            <select class="form-control" id="productUnit" value={this.props.productInfo.unit}>
                                 <option value="">-- Chọn đơn vị tính --</option>
                                 <option value="1">Cái</option>
                                 <option value="2">Chiếc</option>
