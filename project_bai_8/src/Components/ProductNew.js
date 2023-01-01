@@ -9,7 +9,14 @@ class ProductNew extends React.Component {
             status: "Đang đi học",
         }
     }
-
+    static defaultProps = {
+        productTypes : [
+            {value : 1, text : "Đồ gia dụng", checked : false},
+            {value : 2, text : "Đồ điện tử", checked : false},
+            {value : 3, text : "Quần áo", checked : false},
+            {value : 4, text : "Khác", checked : false},
+        ]
+    }
     saveProd = () => {
         // this.props.saveProduct("Xin chao");
         this.setState({
@@ -45,18 +52,14 @@ class ProductNew extends React.Component {
                             <label>Loại sản phẩm:</label>
                         </div>
                         <div class="form-check col-md-8">
-                            <div class="col-md-6">
-                                <input class="form-check-input" type="checkbox" value="1" name="productType" />
-                                <label class="form-check-label" for="productType">Đồ gia dụng</label><br />
-                                <input class="form-check-input" type="checkbox" value="2" name="productType" />
-                                <label class="form-check-label" for="productType">Đồ điện tử</label><br />
-                            </div>
-                            <div class="col-md-6">
-                                <input class="form-check-input" type="checkbox" value="3" name="productType" />
-                                <label class="form-check-label" for="productType">Quần áo</label><br />
-                                <input class="form-check-input" type="checkbox" value="4" name="productType" />
-                                <label class="form-check-label" for="productType">Sách</label>
-                            </div>
+                            {
+                                this.props.productTypes.map(item => {
+                                    return <>
+                                        <input className="form-check-input" type="checkbox" value={item.value} name="productType" checked={this.props.productInfo.type.includes(item.value)}/>
+                                        <label className="form-check-label">{item.text}</label><br />
+                                    </>
+                                })
+                            }
                         </div>
                     </div>
                     <div class="form-group row">

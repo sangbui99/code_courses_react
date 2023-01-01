@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import ProductNew from "./ProductNew";
 import ProductList from "./ProductList";
 
@@ -8,19 +8,22 @@ function ContainerF(){
             id : 57,
             name : "Iphone 14",
             price : 20000000,
-            unit : "Cái"
+            unit : "1",
+            type : ["1","2"]
         },
         {
             id : 76,
             name : "SamSung Galaxy",
             price : 15000000,
-            unit : "Chiếc"
+            unit : "2",
+            type : ["2","3"]
         },
         {
             id : 99,
             name : "Xiaomi",
             price : 15000000,
-            unit : "Chiếc"
+            unit : "3",
+            type : ["1","3"]
         }
     ])
     const [product, setProduct] = useState({
@@ -42,6 +45,11 @@ function ContainerF(){
         arr.splice(index,1);
         setProductList(arr)
     }
+
+//  useEffect chia làm 4 trường hợp
+    useEffect(() => {
+        console.log("useEffect đang được thực hiện");
+    },[productList]);
 
     return(<div class="row">
         <ProductList productList = {productList} editProduct= {editProduct} deleteProduct = {deleteProduct}/>

@@ -33,19 +33,19 @@ class Container extends React.Component{
                     id : 57,
                     name : "Iphone 14",
                     price : 20000000,
-                    unit : "Cái"
+                    unit : "1"
                 },
                 {
                     id : 76,
                     name : "SamSung Galaxy",
                     price : 15000000,
-                    unit : "Chiếc"
+                    unit : "2"
                 },
                 {
                     id : 99,
                     name : "Xiaomi",
                     price : 15000000,
-                    unit : "Chiếc"
+                    unit : "3"
                 }
             ]
         }
