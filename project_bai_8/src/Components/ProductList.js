@@ -36,7 +36,7 @@ class ProductList extends React.Component
                 <tbody>
                     {
                         this.props.productList.map((product) => {
-                            return <tr>
+                            return <tr key={product.id}>
                                 <td>{product.id}</td>
                                 <td>{product.name}</td>
                                 <td>{product.price}</td>

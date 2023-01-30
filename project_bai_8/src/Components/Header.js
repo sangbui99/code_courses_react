@@ -1,35 +1,40 @@
+import {Link} from "react-router-dom"
+import routers from "../commons/routers"
 
 function Header() {
     return (
         <header>
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark my-menu">
-                <div class="container">
-                    <div class="collapse navbar-collapse my-navbar" id="mainmenu">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Trang chủ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html">Giới thiệu</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" data-toggle="dropdown">Product</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#modelId">chi tiết</a>
-                                    <a class="dropdown-item" href="cart.html">giỏ hàng</a>
+            <nav className="navbar navbar-expand-sm navbar-dark bg-dark my-menu">
+                <div className="container">
+                    <div className="collapse navbar-collapse my-navbar" id="mainmenu">
+                        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                            {
+                              routers.map(item => {
+                                return (
+                                    <li className="nav-item" key={item.path}>
+                                       <Link  className="nav-link" to={item.path}>{item.name}</Link>                          
+                                    </li>
+                                )
+                              })
+                            }
+                            <li className="nav-item dropdown">
+                                <a className="nav-link" href="#" data-toggle="dropdown">Product</a>
+                                <div className="dropdown-menu">
+                                    <a className="dropdown-item" data-toggle="modal" data-target="#modelId">chi tiết</a>
+                                    <a className="dropdown-item" href="cart.html">giỏ hàng</a>
                                 </div>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="cart.html">Giỏ hàng</a>
+                            <li className="nav-item ">
+                                <a className="nav-link" href="cart.html">Giỏ hàng</a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="contact.html">Liên hệ</a>
+                            <li className="nav-item ">
+                                <a className="nav-link" href="contact.html">Liên hệ</a>
                             </li>
 
                         </ul>
 
-                        <form class="form-inline my-2 my-lg-0">
-                            <button class="btn btn-outline-dark bg-danger my-2 my-sm-2" type="submit">Tìm kiếm</button>
+                        <form className="form-inline my-2 my-lg-0">
+                            <button className="btn btn-outline-dark bg-danger my-2 my-sm-2" type="submit">Tìm kiếm</button>
                         </form>
                     </div>
                 </div>

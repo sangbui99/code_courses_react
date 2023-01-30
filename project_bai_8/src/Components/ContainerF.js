@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import ProductNew from "./ProductNew";
+// import ProductNew from "./ProductNew";
+import ProductNewF from "./ProductNewF";
 import ProductList from "./ProductList";
 
-function ContainerF(){
+const ContainerF = () => {
     const [productList, setProductList] = useState([
         {
             id : 57,
@@ -53,7 +54,7 @@ function ContainerF(){
 
     return(<div class="row">
         <ProductList productList = {productList} editProduct= {editProduct} deleteProduct = {deleteProduct}/>
-        <ProductNew productInfo = {product}/>
+        <ProductNewF productInfo = {product}/>
         </div>
     )
 }
