@@ -1,12 +1,14 @@
 /* eslint-disable no-useless-constructor */
 import React from "react";
 
+
+
 class ProductNew extends React.Component {
     constructor(prop) {
         super(prop);
         this.state = {
-            name: "A",
-            status: "Đang đi học",
+            name: "",
+            code: ""
         }
     }
     static defaultProps = {
@@ -18,9 +20,11 @@ class ProductNew extends React.Component {
         ]
     }
     saveProd = () => {
-        // this.props.saveProduct("Xin chao");
+       this.props.saveProduct(this.state);
+    }
+    changeValue = (event) => {
         this.setState({
-            status : this.state.status === "Đang đi học" ? "Đã nghỉ học" : "Đang đi học",
+            [event.target.name] : event.target.value
         });
     }
 
@@ -34,8 +38,7 @@ class ProductNew extends React.Component {
                             <label id="lblTenSanPham">Tên sản phẩm:</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" value={this.props.productInfo.name} id="productName"
-                                placeholder="Nhập tên sản phẩm ..." />
+                            <input type="text" class="form-control" name="name" value={this.state.name} onChange={this.changeValue} id="productName" placeholder="Nhập tên sản phẩm ..."/>
                             <input type="hidden" id="productId" />
                         </div>
                     </div>
@@ -44,7 +47,7 @@ class ProductNew extends React.Component {
                             <label>Mã sản phẩm:</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" value={this.state.status} id="productCode" placeholder="Nhập mã sản phẩm ..." />
+                            <input type="text" class="form-control" name="code" value={this.state.code} onChange={this.changeValue} id="productCode" placeholder="Nhập mã sản phẩm ..." />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -55,7 +58,7 @@ class ProductNew extends React.Component {
                             {
                                 this.props.productTypes.map(item => {
                                     return <>
-                                        <input className="form-check-input" type="checkbox" value={item.value} name="productType" checked={this.props.productInfo.type.includes(item.value)}/>
+                                        <input className="form-check-input" type="checkbox" value={item.value} name="productType" />
                                         <label className="form-check-label">{item.text}</label><br />
                                     </>
                                 })

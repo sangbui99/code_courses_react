@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import ProductNewF from "./ProductNewF";
 import ProductList from "./ProductList";
 
-const ContainerF = () => {
+function ContainerF(){
     const [productList, setProductList] = useState([
         {
             id : 57,

@@ -74,11 +74,16 @@ class Container extends React.Component{
         })
     }
     
-    
+    saveProduct = (product) =>{
+        this.setState({
+            productList : [...this.state.productList, product]
+        })
+    }
+
     render(){
         return <div class="row">
         <ProductList productList = {this.state.productList} editProduct= {this.editProduct} deleteProduct = {this.deleteProduct}/>
-        <ProductNew productInfo = {this.state.product} saveProduct= {this.myFunction}/>
+        <ProductNew productInfo = {this.state.product} saveProduct= {this.saveProduct}/>
         </div>
     }
 }

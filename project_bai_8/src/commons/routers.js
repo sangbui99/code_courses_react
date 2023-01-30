@@ -1,11 +1,11 @@
-import ContainerF from '../Components/ContainerF';
+import Container from '../Components/Container';
 import Home from '../Components/Home';
 import Topic from '../Components/Topic';
 
 
 const routers = [
-    { path:"/product", 
-      element:<ContainerF/>,
+    { path:"/", 
+      element:<Container></Container>,
       name:"Product"
     },
 
@@ -19,6 +19,4 @@ const routers = [
       name:"Topic"
     }
   ]
-
-
-export default routers
+export default routers ;
