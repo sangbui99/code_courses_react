@@ -8,7 +8,8 @@ class ProductNew extends React.Component {
         super(prop);
         this.state = {
             name: "",
-            code: ""
+            code: "",
+            changeByInput : false,
         }
     }
     static defaultProps = {
@@ -24,10 +25,18 @@ class ProductNew extends React.Component {
     }
     changeValue = (event) => {
         this.setState({
-            [event.target.name] : event.target.value
+            [event.target.name] : event.target.value,
+            changeByInput : true
         });
     }
 
+    static getDerivedStateFromProps = (props,state) => {
+        if(!state.changeByInput)
+        return {
+            name: props.productInfo.name
+        }
+        return {...state, changeByInput:false}
+    }
     render() {
         return <div class="col-md-5">
             <fieldset class="border p-2">

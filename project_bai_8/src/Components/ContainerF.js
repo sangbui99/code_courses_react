@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 // import ProductNew from "./ProductNew";
-import ProductNewF from "./ProductNewF";
+import ProductNew from "./ProductNew";
 import ProductList from "./ProductList";
 
 function ContainerF(){
@@ -47,6 +47,11 @@ function ContainerF(){
         setProductList(arr)
     }
 
+    function saveProduct(product){
+        const maxId = Math.max(...productList.map(x => x.id));
+        product.id = maxId + 1;
+        setProductList([...productList,product]);
+    }
 //  useEffect chia làm 4 trường hợp
     useEffect(() => {
         console.log("useEffect đang được thực hiện");
@@ -54,7 +59,7 @@ function ContainerF(){
 
     return(<div class="row">
         <ProductList productList = {productList} editProduct= {editProduct} deleteProduct = {deleteProduct}/>
-        <ProductNewF productInfo = {product}/>
+        <ProductNew productInfo = {product} saveProduct= {saveProduct}/>
         </div>
     )
 }

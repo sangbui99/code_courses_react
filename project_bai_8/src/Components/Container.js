@@ -75,6 +75,8 @@ class Container extends React.Component{
     }
     
     saveProduct = (product) =>{
+        const maxId = Math.max(...this.state.productList.map(x => x.id));
+        product.id = maxId + 1;
         this.setState({
             productList : [...this.state.productList, product]
         })
