@@ -11,10 +11,10 @@ const productAPI = {
         return axiosClient.delete(`${url}/${id}`);
     },
     create: (params) => {
-        return axiosClient.post(url)
+        return axiosClient.post(url, params)
     },
     update: (params) => {
-        return axiosClient.put(url)
+        return axiosClient.put(url, params)
     },
 }
 export default productAPI;

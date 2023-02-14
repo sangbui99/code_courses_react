@@ -7,35 +7,36 @@ class ProductNew extends React.Component {
     constructor(prop) {
         super(prop);
         this.state = {
-            name: "",
-            code: "",
-            changeByInput : false,
+            Name: "",
+            Code: "",
+            Price: 0,
+            changeByInput: false,
         }
     }
     static defaultProps = {
-        productTypes : [
-            {value : 1, text : "Đồ gia dụng", checked : false},
-            {value : 2, text : "Đồ điện tử", checked : false},
-            {value : 3, text : "Quần áo", checked : false},
-            {value : 4, text : "Khác", checked : false},
+        productTypes: [
+            { value: 1, text: "Đồ gia dụng", checked: false },
+            { value: 2, text: "Đồ điện tử", checked: false },
+            { value: 3, text: "Quần áo", checked: false },
+            { value: 4, text: "Khác", checked: false },
         ]
     }
     saveProd = () => {
-       this.props.saveProduct(this.state);
+        this.props.saveProduct(this.state);
     }
     changeValue = (event) => {
         this.setState({
-            [event.target.name] : event.target.value,
-            changeByInput : true
+            [event.target.name]: event.target.value,
+            changeByInput: true
         });
     }
 
-    static getDerivedStateFromProps = (props,state) => {
-        if(!state.changeByInput)
-        return {
-            name: props.productInfo.name
-        }
-        return {...state, changeByInput:false}
+    static getDerivedStateFromProps = (props, state) => {
+        if (!state.changeByInput)
+            return {
+                name: props.productInfo.name
+            }
+        return { ...state, changeByInput: false }
     }
     render() {
         return <div class="col-md-5">
@@ -47,7 +48,7 @@ class ProductNew extends React.Component {
                             <label id="lblTenSanPham">Tên sản phẩm:</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="name" value={this.state.name} onChange={this.changeValue} id="productName" placeholder="Nhập tên sản phẩm ..."/>
+                            <input type="text" class="form-control" name="Name" value={this.state.Name} onChange={this.changeValue} id="productName" placeholder="Nhập tên sản phẩm ..." />
                             <input type="hidden" id="productId" />
                         </div>
                     </div>
@@ -56,7 +57,7 @@ class ProductNew extends React.Component {
                             <label>Mã sản phẩm:</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="code" value={this.state.code} onChange={this.changeValue} id="productCode" placeholder="Nhập mã sản phẩm ..." />
+                            <input type="text" class="form-control" name="Code" value={this.state.Code} onChange={this.changeValue} id="productCode" placeholder="Nhập mã sản phẩm ..." />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -105,7 +106,7 @@ class ProductNew extends React.Component {
                             <label>Giá sản phẩm:</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="number" class="form-control" id="productPrice"
+                            <input type="number" class="form-control" id="productPrice" name="Price" value={this.state.Price} onChange={this.changeValue}
                                 placeholder="Nhập giá sản phẩm ..." />
                         </div>
                     </div>
